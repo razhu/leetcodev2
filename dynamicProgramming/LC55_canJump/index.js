@@ -10,6 +10,8 @@ function canJump(nums) {
     //     right = nums[left]
     // }
     // return true
+    
+    // [ 3, 2, 1, 0, 4 ])
 let dpArr = nums.map(n => false)
 dpArr[0] = true
 
