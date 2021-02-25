@@ -76,15 +76,20 @@
     return false
 } */
 
-function canConstruct(target, wordBank) {
+/* function canConstruct(target, wordBank, memo = {}) {
+    if (target in memo) return memo[target]
     if (target === '') return true    
     for (let w of wordBank) {        
         if (target.indexOf(w) === 0) {
             const suffix = target.slice(w.length)
-            if (canConstruct(suffix, wordBank) === true) return true
+            if (canConstruct(suffix, wordBank, memo) === true) {
+                memo[target] = true
+                return true
+            }
         }
     }
-    return false
+    memo[target] = false 
+    return memo[target]
 }
 
 
@@ -94,3 +99,46 @@ function canConstruct(target, wordBank) {
 //     }
 // }
 console.log(canConstruct('abcdef', ['ab', 'abc', 'cd', 'def', 'abcd']))
+console.log(canConstruct('abcdefjajajjaajjjjjjjabc', ['ab', 'abc', 'cd', 'def', 'abcd', 'j']))
+console.log(canConstruct('aaaaaaaaaaaaaaaaabbbbbbbbbbbb', ['ab', 'abc', 'cd', 'def', 'abcd', 'a']))
+console.log(canConstruct('eeeeeeeeeeeeeeeeeeeeeeeef', ['e', 'ee', 'eee', 'eeee', 'eeeee', 'eeeeee', 'eeeeeeee', 'f'])) */
+
+
+function climbStairs (n, memo = {}) {
+    if (n in memo) return memo[n]
+    if (n === 0) return 0
+    if (n === 1) return 1
+    if (n === 2) return 2
+    for (let i = 1; i <= n; i++) {
+       memo[n] = climbStairs(n-1, memo) + climbStairs(n-2, memo)
+    }
+    return memo[n]
+}
+
+console.log(climbStairs(2));
+console.log(climbStairs(3));
+console.log(climbStairs(11));
+
+/* 
+let climbStairs = function(n) {
+    let countingFunc = function(stairsRemaining, savedResults) {
+      if (stairsRemaining < 0) {
+        return 0;
+      }
+
+      if (stairsRemaining === 0) {
+        return 1;
+      }
+
+      if (savedResults[stairsRemaining]) {
+        return savedResults[stairsRemaining];
+      }
+
+      savedResults[stairsRemaining] = countingFunc(stairsRemaining - 1, savedResults) + countingFunc(stairsRemaining - 2, savedResults);
+
+      return savedResults[stairsRemaining];
+    };
+
+    return countingFunc(n, {});
+};
+ */
