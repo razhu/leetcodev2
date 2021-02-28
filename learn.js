@@ -42,6 +42,7 @@
 //     return memo[key];
 // }
 
+<<<<<<< HEAD
 /////////////// can
 // canSum(target, Array) -> boolean
 // canSum(7, [3, 4, 2]) -> true
@@ -55,3 +56,105 @@ function canSum(target, arr) {
     }
 
 }
+=======
+// TODO: bestSum(target, numbers) -> [x, y, ...] where x + y .. = target
+
+// function bestSum(target, array) {
+//     if (target === 0) return []
+//     if (target < 0) return null
+
+//     for (let i = 0; i < array.length; i++) {
+//         const element = array[i];
+//         let sobra = target - element
+//         let result = bestSum(sobra, array)
+//         if (result )
+        
+//     }
+
+// }
+
+// TODO: wordBank(target, wordBank) -> [x, y, ...] where x + y .. = target . return boolean
+
+// canConstruct('abcdef', ['ab', 'abc', 'cd', 'def', 'abcd'])
+// 
+                        // abcdefg
+                // abc              def
+// 
+
+
+/* function canConstruct(target, wordBank) {
+    if (target === '') return true    
+    for (let w of wordBank) {        
+        let remaining = target.replace(w, '')
+        if (canConstruct(remaining, wordBank) === true) return true
+    }
+    return false
+} */
+
+/* function canConstruct(target, wordBank, memo = {}) {
+    if (target in memo) return memo[target]
+    if (target === '') return true    
+    for (let w of wordBank) {        
+        if (target.indexOf(w) === 0) {
+            const suffix = target.slice(w.length)
+            if (canConstruct(suffix, wordBank, memo) === true) {
+                memo[target] = true
+                return true
+            }
+        }
+    }
+    memo[target] = false 
+    return memo[target]
+}
+
+
+// function canConstruct(target, wordBank) {
+//     for (let w of wordBank) {        
+//         console.log(w);
+//     }
+// }
+console.log(canConstruct('abcdef', ['ab', 'abc', 'cd', 'def', 'abcd']))
+console.log(canConstruct('abcdefjajajjaajjjjjjjabc', ['ab', 'abc', 'cd', 'def', 'abcd', 'j']))
+console.log(canConstruct('aaaaaaaaaaaaaaaaabbbbbbbbbbbb', ['ab', 'abc', 'cd', 'def', 'abcd', 'a']))
+console.log(canConstruct('eeeeeeeeeeeeeeeeeeeeeeeef', ['e', 'ee', 'eee', 'eeee', 'eeeee', 'eeeeee', 'eeeeeeee', 'f'])) */
+
+
+function climbStairs (n, memo = {}) {
+    if (n in memo) return memo[n]
+    if (n === 0) return 0
+    if (n === 1) return 1
+    if (n === 2) return 2
+    for (let i = 1; i <= n; i++) {
+       memo[n] = climbStairs(n-1, memo) + climbStairs(n-2, memo)
+    }
+    return memo[n]
+}
+
+console.log(climbStairs(2));
+console.log(climbStairs(3));
+console.log(climbStairs(11));
+
+/* 
+let climbStairs = function(n) {
+    let countingFunc = function(stairsRemaining, savedResults) {
+      if (stairsRemaining < 0) {
+        return 0;
+      }
+
+      if (stairsRemaining === 0) {
+        return 1;
+      }
+
+      if (savedResults[stairsRemaining]) {
+        return savedResults[stairsRemaining];
+      }
+
+      savedResults[stairsRemaining] = countingFunc(stairsRemaining - 1, savedResults) + countingFunc(stairsRemaining - 2, savedResults);
+
+      return savedResults[stairsRemaining];
+    };
+
+    return countingFunc(n, {});
+};
+ */
+>>>>>>> 714a45f6b413a9f0b6e3ca93b06394d88ee18648
