@@ -20,7 +20,7 @@ console.log(lengthOfLongestSubstring('hola amigo'));
 // }
 
 // best with memoization aka caching
-// function fibo (n, memo = {}) {
+// function fibo (n, memo = {}) { 
 //     if (n in memo) return memo[n]
 //      if (n <= 2) return 1
 //      memo[n] = fibo(n - 1, memo) + fibo(n - 2, memo)
@@ -56,6 +56,21 @@ console.log(lengthOfLongestSubstring('hola amigo'));
 //     return memo[key];
 // }
 
+<<<<<<< HEAD
+/////////////// can
+// canSum(target, Array) -> boolean
+// canSum(7, [3, 4, 2]) -> true
+
+function canSum(target, arr) {
+    let mem = {}
+    if (arr.indexOf(target) !== -1) return true
+    for (let i = 0; i < arr.length; i++) {
+        const element = arr[i];
+        if (element in mem) 
+    }
+
+}
+=======
 // TODO: bestSum(target, numbers) -> [x, y, ...] where x + y .. = target
 
 // function bestSum(target, array) {
@@ -156,3 +171,4 @@ let climbStairs = function(n) {
     return countingFunc(n, {});
 };
  */
+>>>>>>> 714a45f6b413a9f0b6e3ca93b06394d88ee18648
