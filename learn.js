@@ -1,3 +1,17 @@
+function rev (aNum) {
+  
+}
+
+// function lengthOfLongestSubstring(s) {
+  // using sliding window
+/*   let sw = {}
+  for(x of s) {
+      console.log('x ', x);
+  }
+}
+console.log(lengthOfLongestSubstring('hola amigo'));
+ */
+
 // fibonaci 0(2^n)
 // function fibo (n) {
 //     if (n === undefined || n === null) return -1
@@ -104,7 +118,7 @@ console.log(canConstruct('aaaaaaaaaaaaaaaaabbbbbbbbbbbb', ['ab', 'abc', 'cd', 'd
 console.log(canConstruct('eeeeeeeeeeeeeeeeeeeeeeeef', ['e', 'ee', 'eee', 'eeee', 'eeeee', 'eeeeee', 'eeeeeeee', 'f'])) */
 
 
-function climbStairs (n, memo = {}) {
+/* function climbStairs (n, memo = {}) {
     if (n in memo) return memo[n]
     if (n === 0) return 0
     if (n === 1) return 1
@@ -118,7 +132,7 @@ function climbStairs (n, memo = {}) {
 console.log(climbStairs(2));
 console.log(climbStairs(3));
 console.log(climbStairs(11));
-
+ */
 /* 
 let climbStairs = function(n) {
     let countingFunc = function(stairsRemaining, savedResults) {
