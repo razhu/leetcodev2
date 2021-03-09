@@ -1,6 +1,6 @@
 function isValid(s) {
-    // method to use: stack
-    let respuesta = false
+    // method to use: miStack
+    if (s.length % 2 === 1) return false
     const simbolos = {
         '{': '}',
         '[': ']',
@@ -9,15 +9,19 @@ function isValid(s) {
     let miStack = []
     for (let i = 0; i < s.length; i++) {
         const e = s[i];
-        if (!simbolos[e]) { // no existe
-            if (simbolos[e] === e) {
+        if (simbolos[e]) { // no existe
+            miStack.push(e)
+        } else {
+            if (simbolos[miStack[miStack.length - 1]] === e) {
+                miStack.pop()
+            } else {
                 return false
             }
         }
-        
     }
-
-    return true
+    return s.length === miStack.length || miStack.length !== 0 ? false : true
 }
 
-module.exports = isValid;
+console.log(isValid("[[[]"));
+
+// module.exports = isValid;
